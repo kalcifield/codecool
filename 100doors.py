@@ -1,15 +1,19 @@
-num_doors = 100
-door = ["closed"] * num_doors
-text =" "
+door = [0] * 100
+text =" " * 5
+# 0 means the door is closed
+# 1 means the door is open
 
-for i in range(len(door)):
-    for j in range(i, len(door), i+1):
-        if door[j] == "closed":
-            door[j] = "open"
-        elif door[j] == "open":
-                door[j] = "closed"
-for i in range(len(door)):
-    if door[i] == "open":
-        text += (" " + str(i+1))
+for i in range(100):
+    for j in range(i, 100, i+1):
+        if door[j] == 0:
+            door[j] = 1
+        elif door[j] == 1:
+                door[j] = 0
 
-print ("The following doors are open: ", text)  
+
+#printing the number of the open doors                
+for i in range(100):
+    if door[i] == 1:
+        text += (str(i+1) + ", ")
+
+print ("The following doors are open: ", text)
