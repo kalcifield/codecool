@@ -1,0 +1,2 @@
+class DustbinContentError(Exception):
+    pass
